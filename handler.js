@@ -1,7 +1,7 @@
 const Duplex = require('readable-stream').Duplex
 const inherits = require('util').inherits
 
-module.exports = StreamHandler
+module.exports = handleRequestsFromStream
 
 function handleRequestsFromStream(stream, provider, logger){
   logger = logger || noop
