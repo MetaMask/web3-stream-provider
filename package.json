@@ -1,14 +1,29 @@
 {
   "name": "web3-stream-provider",
-  "version": "1.1.0",
-  "description": "",
+  "version": "2.0.0",
+  "description": "Utility for creating an Ethereum web3 provider that forwards payloads through a stream.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "kumavis",
   "license": "ISC",
   "dependencies": {
     "readable-stream": "^2.0.5"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kumavis/web3-stream-provider.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kumavis/web3-stream-provider/issues"
+  },
+  "homepage": "https://github.com/kumavis/web3-stream-provider#readme",
+  "keywords": [
+    "ethereum",
+    "web3",
+    "web3-provider",
+    "stream"
+  ]
 }
