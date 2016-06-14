@@ -23,9 +23,15 @@ StreamProvider.prototype.send = function(payload){
 StreamProvider.prototype.sendAsync = function(payload, callback){
   // console.log('StreamProvider - sending payload', payload)
   var id = payload.id
+  // handle batch requests
   if (Array.isArray(payload)) {
-    id = 'batch'+payload[0].id
+    id = 'batch:'+payload.map((data)=>data.id).join(',')
+    // short cut for empty batch requests
+    if (payload.length === 0){
+      return cb(null, [])
+    }
   }
+  // store request details
   this._payloads[id] = [payload, callback]
   // console.log('payload for plugin:', payload)
   this.push(payload)
