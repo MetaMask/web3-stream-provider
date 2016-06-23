@@ -25,11 +25,11 @@ StreamProvider.prototype.sendAsync = function(payload, callback){
   var id = payload.id
   // handle batch requests
   if (Array.isArray(payload)) {
-    id = 'batch:'+payload.map((data)=>data.id).join(',')
-    // short cut for empty batch requests
+    // short circuit for empty batch requests
     if (payload.length === 0){
       return cb(null, [])
     }
+    id = generateBatchId(payload)
   }
   // store request details
   this._payloads[id] = [payload, callback]
@@ -46,8 +46,9 @@ StreamProvider.prototype.isConnected = function(){
 StreamProvider.prototype._onResponse = function(response){
   // console.log('StreamProvider - got response', payload)
   var id = response.id
+  // handle batch requests
   if (Array.isArray(response)) {
-    id = 'batch'+response[0].id
+    id = generateBatchId(payload)
   }
   var data = this._payloads[id]
   if (!data) throw new Error('StreamProvider - Unknown response id')
@@ -74,5 +75,9 @@ StreamProvider.prototype._write = function(msg, encoding, cb){
 }
 
 // util
+
+function generateBatchId(batchPayload){
+  return 'batch:'+batchPayload.map((payload)=>payload.id).join(',')
+}
 
 function noop(){}
