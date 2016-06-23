@@ -27,7 +27,7 @@ StreamProvider.prototype.sendAsync = function(payload, callback){
   if (Array.isArray(payload)) {
     // short circuit for empty batch requests
     if (payload.length === 0){
-      return cb(null, [])
+      return callback(null, [])
     }
     id = generateBatchId(payload)
   }
