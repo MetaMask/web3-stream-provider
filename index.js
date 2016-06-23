@@ -48,7 +48,7 @@ StreamProvider.prototype._onResponse = function(response){
   var id = response.id
   // handle batch requests
   if (Array.isArray(response)) {
-    id = generateBatchId(payload)
+    id = generateBatchId(response)
   }
   var data = this._payloads[id]
   if (!data) throw new Error('StreamProvider - Unknown response id')
