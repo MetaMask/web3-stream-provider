@@ -62,7 +62,11 @@ StreamProvider.prototype._onResponse = function(response){
   //   console.log('plugin response:', payload.id, payload.method, payload.params, '->', res[index].result)
   // })
 
-  callback(null, response)
+  // run callback on empty stack,
+  // prevent internal stream-handler from catching errors
+  setTimeout(function(){
+    callback(null, response)
+  })
 }
 
 // stream plumbing
