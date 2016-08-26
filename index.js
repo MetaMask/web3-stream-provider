@@ -81,7 +81,7 @@ StreamProvider.prototype._write = function(msg, encoding, cb){
 // util
 
 function generateBatchId(batchPayload){
-  return 'batch:'+batchPayload.map(payload => payload.id).join(',')
+  return 'batch:'+batchPayload.map(function(payload){ return payload.id }).join(',')
 }
 
 function noop(){}
