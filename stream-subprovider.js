@@ -53,6 +53,8 @@ StreamSubprovider.prototype._onResponse = function(response){
   })
 }
 
+StreamSubprovider.prototype.setEngine = noop
+
 // stream plumbing
 
 StreamSubprovider.prototype._read = noop

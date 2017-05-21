@@ -1,10 +1,9 @@
 const ProviderEngine = require('web3-provider-engine')
 const StreamSubprovider = require('./stream-subprovider')
+const inherits = require('inherits')
 
 module.exports = StreamProvider
 
-
-inherits(StreamProvider, Duplex)
 
 function StreamProvider(){
   const engine = new ProviderEngine()
