@@ -59,7 +59,7 @@ StreamSubprovider.prototype._onResponse = function(response){
   // run callback on empty stack,
   // prevent internal stream-handler from catching errors
   setTimeout(function(){
-    callback(null, response)
+    callback(null, response.result)
   })
 }
 
