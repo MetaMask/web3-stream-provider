@@ -28,7 +28,19 @@ StreamSubprovider.prototype.handleRequest = function(payload, next, end){
   }
   // store request details
   this._payloads[id] = [payload, end]
-  this.push(payload)
+  this.write(payload)
+}
+
+StreamSubprovider.prototype.setEngine = noop
+
+// stream plumbing
+
+StreamSubprovider.prototype._read = noop
+
+StreamSubprovider.prototype._write = function(msg, encoding, cb){
+  console.log('stream got write', msg)
+  this._onResponse(msg)
+  cb()
 }
 
 // private
@@ -43,7 +55,6 @@ StreamSubprovider.prototype._onResponse = function(response){
   var data = this._payloads[id]
   if (!data) throw new Error('StreamSubprovider - Unknown response id')
   delete this._payloads[id]
-  var payload = data[0]
   var callback = data[1]
 
   // run callback on empty stack,
@@ -53,17 +64,6 @@ StreamSubprovider.prototype._onResponse = function(response){
   })
 }
 
-StreamSubprovider.prototype.setEngine = noop
-
-// stream plumbing
-
-StreamSubprovider.prototype._read = noop
-
-StreamSubprovider.prototype._write = function(msg, encoding, cb){
-  console.log('stream got write', msg)
-  this._onResponse(msg)
-  cb()
-}
 
 // util
 
