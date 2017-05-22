@@ -28,7 +28,7 @@ StreamSubprovider.prototype.handleRequest = function(payload, next, end){
   }
   // store request details
   this._payloads[id] = [payload, end]
-  this.write(payload)
+  this.push(payload)
 }
 
 StreamSubprovider.prototype.setEngine = noop
