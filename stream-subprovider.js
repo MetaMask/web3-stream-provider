@@ -16,7 +16,6 @@ function StreamSubprovider(){
 }
 
 StreamSubprovider.prototype.handleRequest = function(payload, next, end){
-  console.log('stream subprovider handleRequest', payload)
   var id = payload.id
   // handle batch requests
   if (Array.isArray(payload)) {
@@ -45,7 +44,6 @@ StreamSubprovider.prototype._write = function(msg, encoding, cb){
 // private
 
 StreamSubprovider.prototype._onResponse = function(response){
-  console.log('StreamSubprovider _onResponse', response)
   var id = response.id
   // handle batch requests
   if (Array.isArray(response)) {
