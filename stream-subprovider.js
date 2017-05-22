@@ -16,7 +16,7 @@ function StreamSubprovider(){
 }
 
 StreamSubprovider.prototype.handleRequest = function(payload, next, end){
-  console.log('stream subprovider handling', payload)
+  console.log('stream subprovider handleRequest', payload)
   var id = payload.id
   // handle batch requests
   if (Array.isArray(payload)) {
@@ -38,7 +38,6 @@ StreamSubprovider.prototype.setEngine = noop
 StreamSubprovider.prototype._read = noop
 
 StreamSubprovider.prototype._write = function(msg, encoding, cb){
-  console.log('stream got write', msg)
   this._onResponse(msg)
   cb()
 }
@@ -46,7 +45,7 @@ StreamSubprovider.prototype._write = function(msg, encoding, cb){
 // private
 
 StreamSubprovider.prototype._onResponse = function(response){
-  console.log('StreamSubprovider - got response', response)
+  console.log('StreamSubprovider _onResponse', response)
   var id = response.id
   // handle batch requests
   if (Array.isArray(response)) {
