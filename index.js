@@ -4,14 +4,13 @@ const inherits = require('inherits')
 
 inherits(StreamProvider, ProviderEngine)
 
-function StreamProvider () {
-  ProviderEngine.call(this)
+function StreamProvider (opts) {
+  ProviderEngine.call(this, opts)
 
   const streamSubprovider = this.stream = new StreamSubprovider()
   this.addProvider(streamSubprovider)
   this.start()
 }
-
 
 module.exports = StreamProvider
 
