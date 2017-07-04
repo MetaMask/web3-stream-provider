@@ -19,9 +19,14 @@ For handling incoming rpc payloads
 ```js
 const handleRequestsFromStream = require('web3-stream-provider/handler')
 
-handleRequestsFromStream(remoteStream, provider, logger)
+handleRequestsFromStream(remoteStream, provider, /* optional */ onRequest, onResponse)
 
-function logger(err, request, response){
+function onRequest(request){
+  // can modify the request if needed
+  console.log(arguments)
+}
+
+function onResponse(err, request, response){
   console.log(arguments)
 }
 ```

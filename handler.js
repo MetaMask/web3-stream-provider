@@ -3,16 +3,18 @@ const inherits = require('util').inherits
 
 module.exports = handleRequestsFromStream
 
-function handleRequestsFromStream(stream, provider, logger){
-  logger = logger || noop
-  
+function handleRequestsFromStream(stream, provider, onResponse){
+  onRequest = onRequest || noop
+  onResponse = onResponse || noop
+
   stream.on('data', function onRpcRequest(payload){
+    onRequest(payload)
     provider.sendAsync(payload, function onPayloadHandled(err, response){
-      logger(null, payload, response)
+      onResponse(err, payload, response)
       try {
         stream.write(response)
       } catch (err) {
-        logger(err)
+        onResponse(err)
       }
     })
   })
