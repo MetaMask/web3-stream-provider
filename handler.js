@@ -3,7 +3,7 @@ const inherits = require('util').inherits
 
 module.exports = handleRequestsFromStream
 
-function handleRequestsFromStream(stream, provider, onResponse){
+function handleRequestsFromStream(stream, provider, onRequest, onResponse){
   onRequest = onRequest || noop
   onResponse = onResponse || noop
 
