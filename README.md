@@ -1,5 +1,7 @@
 ### web3-stream-provider
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/kumavis/web3-stream-provider.svg)](https://greenkeeper.io/)
+
 Utility for creating an Ethereum web3 provider that forwards payloads through a stream.
 Only works for **async** payloads.
 
