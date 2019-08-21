@@ -1,5 +1,3 @@
-const Duplex = require('readable-stream').Duplex
-const inherits = require('util').inherits
 
 module.exports = handleRequestsFromStream
 
@@ -18,9 +16,7 @@ function handleRequestsFromStream(stream, provider, onRequest, onResponse){
       }
     })
   })
-
 }
-
 
 // util
 
