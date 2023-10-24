@@ -9,10 +9,13 @@
   "author": "kumavis",
   "license": "ISC",
   "dependencies": {
-    "readable-stream": "^2.0.5",
+    "readable-stream": "^2.3.8",
     "uuid": "^9.0.0"
   },
   "devDependencies": {},
+  "engines": {
+    "node": "^16.20 || ^18.16 || >=20"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kumavis/web3-stream-provider.git"
