@@ -1,7 +1,7 @@
 
 const Duplex = require('readable-stream').Duplex
 const inherits = require('util').inherits
-const uuid = require('uuid/v4')
+const uuid = require('uuid').v4
 
 module.exports = StreamProvider
 

@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "readable-stream": "^2.3.8",
-    "uuid": "^3.3.3"
+    "uuid": "^9.0.0"
   },
   "devDependencies": {},
   "engines": {
