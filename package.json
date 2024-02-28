@@ -1,6 +1,6 @@
 {
   "name": "web3-stream-provider",
-  "version": "4.0.1",
+  "version": "5.0.0",
   "description": "Utility for creating an Ethereum web3 provider that forwards payloads through a stream.",
   "main": "index.js",
   "scripts": {
