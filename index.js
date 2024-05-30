@@ -51,11 +51,16 @@ StreamProvider.prototype.isConnected = function(){
 StreamProvider.prototype._onResponse = function(response){
 
   const id = response.id
+  if (id === null || id === undefined) {
+    return
+  }
 
   const data = this._payloads[id]
-  if (!data) throw new Error(
-    `StreamProvider - Unknown response id for response: ${response}`
-  )
+  if (!data) {
+      throw new Error(
+      `StreamProvider - Unknown response id for response: ${response}`
+    )
+  }
 
   delete this._payloads[id]
   const callback = data[0]
