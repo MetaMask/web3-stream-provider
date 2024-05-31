@@ -9,7 +9,7 @@
   "author": "kumavis",
   "license": "ISC",
   "dependencies": {
-    "readable-stream": "^3.6.2",
+    "readable-stream": "^3.6.2 || ^4.5.2",
     "uuid": "^9.0.0"
   },
   "devDependencies": {},
